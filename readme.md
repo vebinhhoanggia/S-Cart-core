@@ -20,6 +20,10 @@ Our highest goals are aimed at general users:
 - Powerful system, many useful functions.
 - Easy to access, easy to use.
 
+## Support Customize
+
+This is my customize
+
 ## Support the project
 Support this project :stuck_out_tongue_winking_eye: :pray:
 <p align="center">
