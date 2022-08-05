@@ -103,6 +103,8 @@ if (!function_exists('sc_order_process_after_success') && !in_array('sc_order_pr
                     ];
                     $config = [
                         'to' => $data['email'],
+                        'cc' => sc_store('cc_email'),
+                        'bcc' => sc_store('bcc_email'),
                         'replyTo' => sc_store('email'),
                         'subject' => sc_language_render('email.order.email_subject_customer', ['order_id' => $orderID]),
                     ];

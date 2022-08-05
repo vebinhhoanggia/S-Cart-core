@@ -122,7 +122,10 @@ class PrepareTablesAdmin extends Migration
             $table->string('phone', 20)->nullable();
             $table->string('long_phone', 100)->nullable();
             $table->string('email', 150)->nullable();
+            $table->string('cc_email', 150)->nullable();
+            $table->string('bcc_email', 150)->nullable();
             $table->string('time_active', 200)->nullable();
+            $table->string('time_consulting', 200)->nullable();
             $table->string('address', 300)->nullable();
             $table->string('office', 300)->nullable();
             $table->string('warehouse', 300)->nullable();
@@ -144,6 +147,7 @@ class PrepareTablesAdmin extends Migration
             $table->string('title', 255)->nullable();
             $table->string('description', 500)->nullable();
             $table->string('keyword', 200)->nullable();
+            $table->mediumText('introduce')->nullable();
             $table->mediumText('maintain_content')->nullable();
             $table->string('maintain_note', 300)->nullable();
             $table->primary(['store_id', 'lang']);

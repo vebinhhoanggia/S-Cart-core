@@ -62,9 +62,10 @@ if (!function_exists('sc_contact_form_sendmail') && !in_array('sc_contact_form_s
                 $dataView = [
                     'content' => $content,
                 ];
-
                 $config = [
                     'to' => sc_store('email'),
+                    'cc' => sc_store('cc_email'),
+                    'bcc' => sc_store('bcc_email'),
                     'replyTo' => $data['email'],
                     'subject' => $data['title'],
                 ];

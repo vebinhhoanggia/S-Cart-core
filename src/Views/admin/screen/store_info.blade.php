@@ -81,6 +81,11 @@
                       <td><i class="far fa-calendar-alt"></i> {{ sc_language_render('store.time_active') }}</td>
                       <td><a href="#" class="editable-required editable editable-click" data-name="time_active" data-type="textarea" data-pk="" data-source="" data-url="{{ sc_route_admin('admin_store.update') }}" data-title="{{ sc_language_render('store.time_active') }}" data-value="{{ $store->time_active }}" data-original-title="" title="">{{$store->time_active }}</a></td>
                     </tr>
+                    
+                    <tr>
+                      <td><i class="far fa-calendar-alt"></i> {{ sc_language_render('store.time_consulting') }}</td>
+                      <td><a href="#" class="editable-required editable editable-click" data-name="time_consulting" data-type="textarea" data-pk="" data-source="" data-url="{{ sc_route_admin('admin_store.update') }}" data-title="{{ sc_language_render('store.time_consulting') }}" data-value="{{ $store->time_consulting }}" data-original-title="" title="">{{$store->time_consulting }}</a></td>
+                    </tr>
               
                     <tr>
                       <td><i class="fas fa-map-marked"></i> {{ sc_language_render('store.address') }}</td>
@@ -98,6 +103,15 @@
                     <tr>
                       <td><i class="fas fa-envelope"></i> {{ sc_language_render('store.email') }}</td>
                       <td><a href="#" class="editable-required editable editable-click" data-name="email" data-type="text" data-pk="" data-source="" data-url="{{ sc_route_admin('admin_store.update') }}" data-title="{{ sc_language_render('store.email') }}" data-value="{{ $store->email }}" data-original-title="" title="">{{$store->email }}</a></td>
+                    </tr>
+
+                    <tr>
+                      <td><i class="fas fa-envelope"></i> {{ sc_language_render('store.cc_email') }}</td>
+                      <td><a href="#" class="editable-required editable editable-click" data-name="cc_email" data-type="text" data-pk="" data-source="" data-url="{{ sc_route_admin('admin_store.update') }}" data-title="{{ sc_language_render('store.cc_email') }}" data-value="{{ $store->cc_email }}" data-original-title="" title="">{{$store->cc_email }}</a></td>
+                    </tr>
+                    <tr>
+                      <td><i class="fas fa-envelope"></i> {{ sc_language_render('store.bcc_email') }}</td>
+                      <td><a href="#" class="editable-required editable editable-click" data-name="bcc_email" data-type="text" data-pk="" data-source="" data-url="{{ sc_route_admin('admin_store.update') }}" data-title="{{ sc_language_render('store.bcc_email') }}" data-value="{{ $store->bcc_email }}" data-original-title="" title="">{{$store->bcc_email }}</a></td>
                     </tr>
 
 @if ($storeId == SC_ID_ROOT)
@@ -173,6 +187,17 @@
                           @foreach ($languages->toArray() as  $codeLang => $lang)
                             {{ $languages[$codeLang]->name }} <img src="{{ sc_file($languages[$codeLang]->icon )}}" style="width:20px">:<br>
                           <i><a href="#" class="editable-required editable editable-click" data-name="{{ 'description__'.$codeLang }}" data-type="text" data-pk="" data-source="" data-url="{{ sc_route_admin('admin_store.update') }}" data-title="{{ sc_language_render('store.description') }}" data-value="{{ $descriptions[$codeLang]['description'] ?? '' }}" data-original-title="" title="">{{ $descriptions[$codeLang]['description'] ?? '' }}</a></i><br>
+                          <br>
+                          @endforeach
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>{{ sc_language_render('store.introduce') }}</td>
+                        <td>
+                          @foreach ($languages->toArray() as  $codeLang => $lang)
+                            {{ $languages[$codeLang]->name }} <img src="{{ sc_file($languages[$codeLang]->icon )}}" style="width:20px">:<br>
+                          <i><a href="#" class="editable-required editable editable-click" data-name="{{ 'description__'.$codeLang }}" data-type="text" data-pk="" data-source="" data-url="{{ sc_route_admin('admin_store.update') }}" data-title="{{ sc_language_render('store.introduce') }}" data-value="{{ $descriptions[$codeLang]['introduce'] ?? '' }}" data-original-title="" title="">{{ $descriptions[$codeLang]['introduce'] ?? '' }}</a></i><br>
                           <br>
                           @endforeach
                         </td>

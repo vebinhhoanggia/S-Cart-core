@@ -566,7 +566,10 @@ CREATE TABLE IF NOT EXISTS `sc_admin_store` (
   `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `long_phone` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cc_email` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bcc_email` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `time_active` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `time_consulting` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `office` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `warehouse` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -590,8 +593,8 @@ CREATE TABLE IF NOT EXISTS `sc_admin_store` (
 -- Dumping data for table s-cart.sc_admin_store: ~1 rows (approximately)
 DELETE FROM `sc_admin_store`;
 /*!40000 ALTER TABLE `sc_admin_store` DISABLE KEYS */;
-INSERT INTO `sc_admin_store` (`id`, `logo`, `icon`, `phone`, `long_phone`, `email`, `time_active`, `address`, `office`, `warehouse`, `template`, `domain`, `partner`, `code`, `language`, `timezone`, `currency`, `status`, `active`, `created_at`, `updated_at`) VALUES
-	('1', 'data/logo/scart-mid.png', NULL, '0123456789', 'Support: 0987654321', 'demo@s-cart.org', '', '123st - abc - xyz', NULL, NULL, 's-cart-light', 'scart.local', '0', 's-cart', 'en', '', 'USD', 1, 1, NULL, NULL);
+INSERT INTO `sc_admin_store` (`id`, `logo`, `icon`, `phone`, `long_phone`, `email`, `time_active`, `time_consulting`, `address`, `office`, `warehouse`, `template`, `domain`, `partner`, `code`, `language`, `timezone`, `currency`, `status`, `active`, `created_at`, `updated_at`) VALUES
+	('1', 'data/logo/scart-mid.png', NULL, '0123456789', '0123456789', 'Support: 0987654321', 'demo@s-cart.org', '', '123st - abc - xyz', NULL, NULL, 's-cart-light', 'scart.local', '0', 's-cart', 'en', '', 'USD', 1, 1, NULL, NULL);
 /*!40000 ALTER TABLE `sc_admin_store` ENABLE KEYS */;
 
 -- Dumping structure for table s-cart.sc_admin_store_description
@@ -601,6 +604,7 @@ CREATE TABLE IF NOT EXISTS `sc_admin_store_description` (
   `lang` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `introduce` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `keyword` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `maintain_content` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `maintain_note` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -611,9 +615,9 @@ CREATE TABLE IF NOT EXISTS `sc_admin_store_description` (
 -- Dumping data for table s-cart.sc_admin_store_description: ~2 rows (approximately)
 DELETE FROM `sc_admin_store_description`;
 /*!40000 ALTER TABLE `sc_admin_store_description` DISABLE KEYS */;
-INSERT INTO `sc_admin_store_description` (`store_id`, `lang`, `title`, `description`, `keyword`, `maintain_content`, `maintain_note`) VALUES
-	('1', 'en', 'Demo S-Cart : Free Laravel eCommerce', 'Free website shopping cart for business', '', '<center><img src="/images/maintenance.png" />\r\n            <h3><span style="color:#e74c3c;"><strong>Sorry! We are currently doing site maintenance!</strong></span></h3>\r\n            </center>', 'Website is in maintenance mode!'),
-	('1', 'vi', 'Demo S-Cart: Mã nguồn website thương mại điện tử miễn phí', 'Laravel shopping cart for business', '', '<center><img src="/images/maintenance.png" />\r\n            <h3><span style="color:#e74c3c;"><strong>Xin lỗi! Hiện tại website đang bảo trì!</strong></span></h3>\r\n            </center>', 'Website đang trong chế độ bảo trì!');
+INSERT INTO `sc_admin_store_description` (`store_id`, `lang`, `title`, `description`, `introduce`, `keyword`, `maintain_content`, `maintain_note`) VALUES
+	('1', 'en', 'Demo S-Cart : Free Laravel eCommerce', 'Free website shopping cart for business', '', '', '<center><img src="/images/maintenance.png" />\r\n            <h3><span style="color:#e74c3c;"><strong>Sorry! We are currently doing site maintenance!</strong></span></h3>\r\n            </center>', 'Website is in maintenance mode!'),
+	('1', 'vi', 'Demo S-Cart: Mã nguồn website thương mại điện tử miễn phí', 'Laravel shopping cart for business', '', '', '<center><img src="/images/maintenance.png" />\r\n            <h3><span style="color:#e74c3c;"><strong>Xin lỗi! Hiện tại website đang bảo trì!</strong></span></h3>\r\n            </center>', 'Website đang trong chế độ bảo trì!');
 /*!40000 ALTER TABLE `sc_admin_store_description` ENABLE KEYS */;
 
 -- Dumping structure for table s-cart.sc_admin_template
@@ -3379,7 +3383,15 @@ INSERT INTO `sc_languages` (`id`, `code`, `text`, `position`, `location`, `creat
 	(2656, 'common.from', 'Từ', 'common', 'vi', NULL, NULL),
 	(2657, 'common.from', 'From', 'common', 'en', NULL, NULL),
 	(2658, 'common.to', 'Đến', 'common', 'vi', NULL, NULL),
-	(2659, 'common.to', 'To', 'common', 'en', NULL, NULL);
+	(2659, 'common.to', 'To', 'common', 'en', NULL, NULL),
+	(2660, 'store.time_consulting', 'Thời gian tư vấn', 'common', 'vi', NULL, NULL),
+	(2661, 'store.time_consulting', 'Time consulting', 'common', 'en', NULL, NULL),
+	(2662, 'store.cc_email', 'Email CC', 'common', 'vi', NULL, NULL),
+	(2663, 'store.cc_email', 'Email CC', 'common', 'en', NULL, NULL),
+	(2664, 'store.bcc_email', 'Email BCC', 'common', 'vi', NULL, NULL),
+	(2665, 'store.bcc_email', 'Email BCC', 'common', 'en', NULL, NULL),
+	(2666, 'store.introduce', 'Giới thiệu', 'common', 'vi', NULL, NULL),
+	(2667, 'store.introduce', 'Introduce', 'common', 'en', NULL, NULL);
 /*!40000 ALTER TABLE `sc_languages` ENABLE KEYS */;
 
 -- Dumping structure for table s-cart.sc_shop_attribute_group
