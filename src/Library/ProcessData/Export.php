@@ -5,6 +5,7 @@
 namespace SCart\Core\Library\ProcessData;
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 class Export
@@ -186,11 +187,20 @@ class Export
         $worksheet->getCell('E' . $indexRowTotal)->setValue(sc_language_render('order.totals.balance').':');
 
         // $worksheet->fromArray($dataExport, $nullValue = null, $startCell = 'A' . $row);
-        $writer = IOFactory::createWriter($spreadsheet, "Xls");
-        // $writer->save('write.xls');
-        header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment; filename="' . $filename . '.xls"');
+        $writer = IOFactory::createWriter($spreadsheet, "Xlsx");
+        // $writer->save('write.xlsx');
+        // header('Content-Type: application/vnd.ms-excel');
+        // header('Content-Disposition: attachment; filename="' . $filename . '.xls"');
+        // header('Cache-Control: max-age=0');
+        // $writer->save("php://output");
+
+        ob_end_clean();
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="' . $filename . '.xlsx"');
         header('Cache-Control: max-age=0');
-        $writer->save("php://output");
+
+        $writer = IOFactory::createWriter($spreadsheet, "Xlsx");
+        $writer = new Xlsx($spreadsheet);
+        exit($writer->save('php://output'));
     }
 }
