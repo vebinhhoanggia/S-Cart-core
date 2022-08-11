@@ -3391,7 +3391,12 @@ INSERT INTO `sc_languages` (`id`, `code`, `text`, `position`, `location`, `creat
 	(2664, 'store.bcc_email', 'Email BCC', 'common', 'vi', NULL, NULL),
 	(2665, 'store.bcc_email', 'Email BCC', 'common', 'en', NULL, NULL),
 	(2666, 'store.introduce', 'Giới thiệu', 'common', 'vi', NULL, NULL),
-	(2667, 'store.introduce', 'Introduce', 'common', 'en', NULL, NULL);
+	(2667, 'store.introduce', 'Introduce', 'common', 'en', NULL, NULL)
+	(2668, 'action.submit_contact_us', 'Contact Us', 'action', 'en', NULL, NULL),
+	(2669, 'action.submit_contact_us', 'Yêu cầu hỗ trợ', 'action', 'vi', NULL, NULL),
+	(2670, 'product.contact_us', 'Contact Us', 'common', 'en', NULL, NULL),
+	(2671, 'product.contact_us', 'Liên hệ', 'common', 'vi', NULL, NULL),
+	;
 /*!40000 ALTER TABLE `sc_languages` ENABLE KEYS */;
 
 -- Dumping structure for table s-cart.sc_shop_attribute_group
