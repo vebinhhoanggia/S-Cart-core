@@ -562,6 +562,7 @@ DROP TABLE IF EXISTS `sc_admin_store`;
 CREATE TABLE IF NOT EXISTS `sc_admin_store` (
   `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
   `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo_footer` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `long_phone` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -593,8 +594,8 @@ CREATE TABLE IF NOT EXISTS `sc_admin_store` (
 -- Dumping data for table s-cart.sc_admin_store: ~1 rows (approximately)
 DELETE FROM `sc_admin_store`;
 /*!40000 ALTER TABLE `sc_admin_store` DISABLE KEYS */;
-INSERT INTO `sc_admin_store` (`id`, `logo`, `icon`, `phone`, `long_phone`, `email`, `time_active`, `time_consulting`, `address`, `office`, `warehouse`, `template`, `domain`, `partner`, `code`, `language`, `timezone`, `currency`, `status`, `active`, `created_at`, `updated_at`) VALUES
-	('1', 'data/logo/scart-mid.png', NULL, '0123456789', '0123456789', 'Support: 0987654321', 'demo@s-cart.org', '', '123st - abc - xyz', NULL, NULL, 's-cart-light', 'scart.local', '0', 's-cart', 'en', '', 'USD', 1, 1, NULL, NULL);
+INSERT INTO `sc_admin_store` (`id`, `logo`,  `logo_footer`, `icon`, `phone`, `long_phone`, `email`, `time_active`, `time_consulting`, `address`, `office`, `warehouse`, `template`, `domain`, `partner`, `code`, `language`, `timezone`, `currency`, `status`, `active`, `created_at`, `updated_at`) VALUES
+	('1', 'data/logo/scart-mid.png', 'data/logo/scart-mid.png', NULL, '0123456789', '0123456789', 'Support: 0987654321', 'demo@s-cart.org', '', '123st - abc - xyz', NULL, NULL, 's-cart-light', 'scart.local', '0', 's-cart', 'en', '', 'USD', 1, 1, NULL, NULL);
 /*!40000 ALTER TABLE `sc_admin_store` ENABLE KEYS */;
 
 -- Dumping structure for table s-cart.sc_admin_store_description
@@ -3396,6 +3397,8 @@ INSERT INTO `sc_languages` (`id`, `code`, `text`, `position`, `location`, `creat
 	(2669, 'action.submit_contact_us', 'Yêu cầu hỗ trợ', 'action', 'vi', NULL, NULL),
 	(2670, 'product.contact_us', 'Contact Us', 'common', 'en', NULL, NULL),
 	(2671, 'product.contact_us', 'Liên hệ', 'common', 'vi', NULL, NULL),
+	(2672, 'store.logo_footer', 'Logo Footer', 'store', 'vi', NULL, NULL),
+	(2673, 'store.logo_footer', 'Logo Footer', 'store', 'en', NULL, NULL),
 	;
 /*!40000 ALTER TABLE `sc_languages` ENABLE KEYS */;
 

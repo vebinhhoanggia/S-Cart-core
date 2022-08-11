@@ -54,6 +54,19 @@
                     </tr>
 
                     <tr>
+                      <td>{{ sc_language_render('store.logo_footer') }}</td>
+                      <td>
+                          <div class="input-group">
+                              <input type="hidden" id="logo_footer" name="logo_footer" value="{{ $store->logo_footer }}" class="form-control input-sm logo_footer" placeholder=""  />
+                          </div>
+                          <div id="preview_logo_footer" class="img_holder">{!! sc_image_render($store->logo_footer,'100px', '', 'Logo Footer') !!}</div>
+                            <a data-input="logo_footer" data-preview="preview_logo_footer" data-type="logo" class="lfm pointer">
+                              <i class="fa fa-image"></i> {{sc_language_render('product.admin.choose_image')}}
+                            </a>
+                      </td>
+                    </tr>
+
+                    <tr>
                       <td>{{ sc_language_render('store.icon') }}</td>
                       <td>
                           <div class="input-group">
