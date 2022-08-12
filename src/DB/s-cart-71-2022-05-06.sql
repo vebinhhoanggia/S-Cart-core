@@ -604,7 +604,7 @@ CREATE TABLE IF NOT EXISTS `sc_admin_store_description` (
   `store_id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lang` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `introduce` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `keyword` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `maintain_content` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,

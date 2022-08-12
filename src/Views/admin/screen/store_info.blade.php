@@ -210,7 +210,7 @@
                         <td>
                           @foreach ($languages->toArray() as  $codeLang => $lang)
                             {{ $languages[$codeLang]->name }} <img src="{{ sc_file($languages[$codeLang]->icon )}}" style="width:20px">:<br>
-                          <i><a href="#" class="editable editable-click" data-name="{{ 'description__'.$codeLang }}" data-type="text" data-pk="" data-source="" data-url="{{ sc_route_admin('admin_store.update') }}" data-title="{{ sc_language_render('store.introduce') }}" data-value="{{ $descriptions[$codeLang]['introduce'] ?? '' }}" data-original-title="" title="">{{ $descriptions[$codeLang]['introduce'] ?? '' }}</a></i><br>
+                          <i><a href="#" class="editable editable-click" data-name="{{ 'introduce__'.$codeLang }}" data-type="text" data-pk="" data-source="" data-url="{{ sc_route_admin('admin_store.update') }}" data-title="{{ sc_language_render('store.introduce') }}" data-value="{{ htmlspecialchars($descriptions[$codeLang]['introduce'] ?? '') }}" data-original-title="" title="">{{ htmlspecialchars($descriptions[$codeLang]['introduce'] ?? '') }}</a></i><br>
                           <br>
                           @endforeach
                         </td>
